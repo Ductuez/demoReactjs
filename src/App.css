@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+.TodoItem-complete{
+  color: red;
+}
+.mt-15{
+  margin-top: 15px;
+}

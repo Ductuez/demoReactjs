@@ -4,11 +4,20 @@ class Soft extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+     by : 'name',
+     value : 1
+
     };
   }
 
- 
+  onLick =async  (softName, softStatus) =>{
+      await this.setState({
+        by : softName,
+        value : softStatus
+
+    })
+    this.props.onLick(this.state.by, this.state.value)
+   }
  
   render() {
     return (
@@ -18,14 +27,14 @@ class Soft extends React.Component {
                     Sắp Xếp <span className="fa fa-caret-square-o-down ml-5"></span>
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li>
+                    <li onClick={() => this.onLick('name', 1)}>
                         <div role="button">
                             <span className="fa fa-sort-alpha-asc pr-5">
                                 Tên A-Z
                             </span>
                         </div>
                     </li>
-                    <li>
+                    <li onClick={() => this.onLick('name', -1)}>
                         <div role="button">
                             <span className="fa fa-sort-alpha-desc pr-5">
                                 Tên Z-A
@@ -33,8 +42,12 @@ class Soft extends React.Component {
                         </div>
                     </li>
                     <li role="separator" className="divider"></li>
-                    <li><div role="button">Trạng Thái Kích Hoạt</div></li>
-                    <li><div role="button">Trạng Thái Ẩn</div></li>
+                    <li onClick={() => this.onLick('status', 1)}>
+                        <div role="button">Trạng Thái Kích Hoạt</div>
+                    </li>
+                    <li onClick={() => this.onLick('status', -1)}>
+                        <div role="button">Trạng Thái Ẩn</div>
+                    </li>
                 </ul>
             </div>
         </div>          

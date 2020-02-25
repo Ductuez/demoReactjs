@@ -15,8 +15,8 @@ class Control extends React.Component {
   render() {
     return (
         <div className="row mt-15">
-           <Search></Search>
-           <Soft></Soft>
+           <Search onSearch={this.props.onSearch}></Search>
+           <Soft onLick = {this.props.onSoft}></Soft>
         </div>  
     );
   }
